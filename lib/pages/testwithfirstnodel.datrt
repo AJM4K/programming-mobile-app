@@ -1,0 +1,92 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:verse_program/Domain/Models.dart';
+
+import '../View/LessonCollection.dart';
+import '../app/BANDBloc.dart';
+
+class TestPage extends StatefulWidget {
+  const TestPage({super.key});
+
+  @override
+  State<TestPage> createState() => _ErrorPageState();
+}
+
+class _ErrorPageState extends State<TestPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("test page"),
+        ),
+        body: SafeArea(
+          child: Container(
+              child: LessonView(
+            ModelData: LessonCollection(lessonContect: [
+              Datamodel(isCode: true, dataString: """
+this is code snippet main dart
+void main(){
+  print("hello world);
+}
+"""),
+              Datamodel(isCode: true, dataString: """
+this is another code snippet main dartthis is another code snippet main dartthis is another code snippet main dart
+this is another code snippet main dart
+this is code snippet main dart
+void main(){
+  print("hello world);
+}
+"""),
+              Datamodel(isCode: false, dataString: """
+# this should be 
+markdown 
+
+
+
+
+data 
+
+
+data
+
+
+data
+
+
+data
+
+
+data
+
+
+data
+
+
+data
+
+
+
+
+
+data
+
+"""),
+              Datamodel(isCode: true, dataString: """
+this is another code snippet main dart
+this is code snippet main dart
+void main(){
+  print("hello world);
+}
+"""),
+              Datamodel(isCode: true, dataString: """
+this is another code snippet main dart
+this is code snippet main dart
+void main(){
+  print("hello world);
+}
+"""),
+            ]),
+          )),
+        ));
+  }
+}
